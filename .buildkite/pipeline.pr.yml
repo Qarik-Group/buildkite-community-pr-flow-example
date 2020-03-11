@@ -1,5 +1,11 @@
 steps:
+  - command: .buildkite/scripts/fake-test.sh
+    label: ":coverage:"
+  - command: "echo --- ERROR base branch must be against master; exit 1"
+    label: ":github:"
+    if: build.pull_request.base_branch != 'master'
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
     label: ":cloudfoundry: pr"
-    if: "!build.pull_request.draft && build.pull_request.base_branch == 'master'"
+    if: |
+      !build.pull_request.draft
