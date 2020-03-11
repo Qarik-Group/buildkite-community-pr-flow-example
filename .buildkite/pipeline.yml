@@ -1,0 +1,10 @@
+steps:
+  - command: .buildkite/scripts/fake-test.sh
+    label: ":coverage:"
+  - wait
+  - command: .buildkite/scripts/fake-deploy.sh
+    label: ":cloudfoundry: pr"
+    branches: "!master"
+  - command: .buildkite/scripts/fake-deploy.sh
+    label: ":cloudfoundry: master"
+    branches: "master"

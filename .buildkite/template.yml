@@ -1,0 +1,5 @@
+name: "Pipeline Example - Community Pull Request Flow"
+description: "Whitelist or block community Pull Requests"
+steps:
+  - command: "buildkite-agent pipeline upload"
+    label: ":pipeline:"
