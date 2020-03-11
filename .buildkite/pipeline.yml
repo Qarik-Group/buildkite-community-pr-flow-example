@@ -2,9 +2,13 @@ steps:
   - command: .buildkite/scripts/fake-test.sh
     label: ":coverage:"
   - wait
-  - command: .buildkite/scripts/fake-deploy.sh
-    label: ":cloudfoundry: pr"
-    if: "!build.pull_request.draft"
-  - command: .buildkite/scripts/fake-deploy.sh
-    label: ":cloudfoundry: master"
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.pr.yml
+    label: ":github:"
+    if: build.pull_request.repository != ""
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.deploy.yml
+    label: ":github:"
     branches: "master"
+  # TODO: how to report PR build error if its not against master?
+  # - command: exit 1
+  #   label: ":github: PR must be against master"
+  #   if: "build.pull_request.repository && !build.pull_request.draft && build.pull_request.base_branch != 'master'"
