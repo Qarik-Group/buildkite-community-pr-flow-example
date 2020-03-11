@@ -1,12 +1,11 @@
 steps:
   - command: .buildkite/scripts/fake-test.sh
     label: ":coverage:"
-  - wait
   - command: buildkite-agent pipeline upload .buildkite/pipeline.pr.yml
-    label: ":github:"
+    label: ":pipeline: pr"
     if: build.pull_request.repository != ""
   - command: buildkite-agent pipeline upload .buildkite/pipeline.deploy.yml
-    label: ":github:"
+    label: ":pipeline: master"
     branches: "master"
   # TODO: how to report PR build error if its not against master?
   # - command: exit 1

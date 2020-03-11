@@ -1,4 +1,5 @@
 steps:
+  - wait
   - command: .buildkite/scripts/fake-deploy.sh
     label: ":cloudfoundry: pr"
     if: "!build.pull_request.draft && build.pull_request.base_branch == 'master'"
