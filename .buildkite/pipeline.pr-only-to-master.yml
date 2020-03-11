@@ -1,0 +1,11 @@
+steps:
+  - command: echo --- ok
+    label: ":github:"
+    branches: "master"
+  - command: echo --- ok -- base branch is master
+    label: ":github:"
+    if: build.pull_request.base_branch == 'master'
+  - command: "echo --- ERROR base branch must be against master; exit 1"
+    label: ":github:"
+    if: build.pull_request.base_branch != 'master'
+
