@@ -8,3 +8,5 @@ steps:
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
     label: ":cloudfoundry: pr ${BUILDKITE_PULL_REQUEST}"
+    env:
+      SUBDOMAIN: "pr-${BUILDKITE_PULL_REQUEST}"
