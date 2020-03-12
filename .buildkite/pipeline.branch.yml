@@ -4,3 +4,5 @@ steps:
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
     label: ":cloudfoundry: $BUILDKITE_BRANCH"
+    env:
+      SUBDOMAIN: "branch-${BUILDKITE_BRANCH}"
