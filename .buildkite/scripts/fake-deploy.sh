@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# From https://buildkite.com/docs/pipelines/links-and-images-in-log-output#links
 function inline_link {
   LINK="url='"$1"'"
 
