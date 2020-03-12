@@ -3,4 +3,4 @@ steps:
     label: ":coverage:"
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
-    label: ":cloudfoundry: branch"
+    label: ":cloudfoundry: $BUILDKITE_BRANCH"
