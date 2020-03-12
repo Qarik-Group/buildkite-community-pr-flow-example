@@ -1,6 +1,6 @@
 steps:
   - command: .buildkite/scripts/fake-test.sh
-    label: ":coverage: $BUILDKITE_PULL_REQUEST_ID"
+    label: ":coverage:"
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
     label: ":cloudfoundry: master"
