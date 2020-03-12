@@ -1,0 +1,6 @@
+steps:
+  - command: .buildkite/scripts/fake-test.sh
+    label: ":coverage:"
+  - wait
+  - command: .buildkite/scripts/fake-deploy.sh
+    label: ":cloudfoundry: branch"
