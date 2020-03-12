@@ -7,4 +7,4 @@ steps:
     if: build.pull_request.base_branch != 'master'
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
-    label: ":cloudfoundry: pr"
+    label: ":cloudfoundry: pr ${BUILDKITE_PULL_REQUEST}"
