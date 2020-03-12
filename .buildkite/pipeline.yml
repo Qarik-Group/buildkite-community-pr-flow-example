@@ -1,0 +1,10 @@
+steps:
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.master.yml
+    label: ":pipeline: pr"
+    if: build.pull_request.repository != null
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.master.yml
+    label: ":pipeline: master"
+    if: build.branch == 'master' && build.pull_request.repository == null
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.master.yml
+    label: ":pipeline: branch"
+    if: build.branch != 'master' && build.pull_request.repository == null
