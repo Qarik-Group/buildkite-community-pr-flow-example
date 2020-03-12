@@ -23,4 +23,7 @@ echo "--- :cloudfoundry: Annotating"
 sleep 1
 
 url=https://myapp.com
+[[ -n "${BUILDKITE_PULL_REQUEST:-}" ]] && {
+  url=https://pr-${BUILDKITE_PULL_REQUEST}.myapp.com
+}
 echo "--- :cloudfoundry: Deployed to $(inline_link $url)"
