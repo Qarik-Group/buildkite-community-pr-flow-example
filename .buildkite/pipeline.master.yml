@@ -3,7 +3,7 @@ steps:
     label: ":coverage:"
   - wait
   - command: .buildkite/scripts/fake-deploy.sh
-    label: ":cloudfoundry: master"
+    label: ":cloudfoundry:"
     branches: "master"
 
 
