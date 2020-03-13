@@ -4,13 +4,14 @@ set -euo pipefail
 
 # From https://buildkite.com/docs/pipelines/links-and-images-in-log-output#links
 function inline_link {
-  LINK="url='"$1"'"
+  LINK=$(printf "url='%s'" "$1")
 
   if [ $# -gt 1 ]; then
-    LINK="$LINK;content='"$2"'"
+    LINK=$(printf "$LINK;content='%s'" "$2")
   fi
 
-  printf '\033]1339;'$LINK'\a\n'
+  # printf '%s' "$LINK"
+  printf '\033]1339;%s\a\n' "$LINK"
 }
 
 echo "--- :cloudfoundry: Preparing"
@@ -26,4 +27,4 @@ url=https://myapp.com
 [[ -n "${SUBDOMAIN:-}" ]] && {
   url=https://${SUBDOMAIN}.myapp.com
 }
-echo "--- :cloudfoundry: Deployed to $(inline_link $url)"
+echo "--- :cloudfoundry: Deployed to $(inline_link "$url")"

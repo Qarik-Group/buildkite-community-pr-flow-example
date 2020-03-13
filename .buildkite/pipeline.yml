@@ -1,5 +1,5 @@
 steps:
-  - command: buildkite-agent pipeline upload .buildkite/pipeline.pr.yml
+  - command: .buildkite/scripts/choose-pr-pipeline.sh | buildkite-agent pipeline upload
     label: ":pipeline: pr"
     if: build.pull_request.repository != null
   - command: buildkite-agent pipeline upload .buildkite/pipeline.master.yml
