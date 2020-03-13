@@ -5,4 +5,8 @@ set -euo pipefail
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
 cd "$ROOT"
 
-cat .buildkite/pipeline.pr-friendly.yml
+if [[ $BUILDKITE_PULL_REQUEST_REPO == "https://github.com/starkandwayne*" ]]; then
+  cat .buildkite/pipeline.pr-friendly.yml
+else
+  cat .buildkite/pipeline.pr-guest.yml
+fi

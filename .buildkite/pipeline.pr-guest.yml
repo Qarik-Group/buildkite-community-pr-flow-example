@@ -1,0 +1,13 @@
+steps:
+  - command: .buildkite/scripts/fake-test.sh
+    label: ":coverage:"
+    if: build.pull_request.base_branch == 'master'
+  - command: "echo --- ERROR base branch must be against master; exit 1"
+    label: ":github:"
+    if: build.pull_request.base_branch != 'master'
+  - block: ":github: guest"
+    prompt: "Check the PR, and confirm ok to deploy?"
+  - command: .buildkite/scripts/fake-deploy.sh
+    label: ":cloudfoundry: pr ${BUILDKITE_PULL_REQUEST}"
+    env:
+      SUBDOMAIN: "pr-${BUILDKITE_PULL_REQUEST}"
