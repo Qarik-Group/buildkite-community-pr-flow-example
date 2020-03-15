@@ -19,11 +19,12 @@ Optionally, to secure your pipeline from manipulation by third-party pull reques
 Setup Github to allow third-party pull requests.
 
 1. Enable "Build pull requests from third-party forked repositories"
-2. Enable "Create a status for each job"
-3. Enable "Separate statuses for pull requests"
-4. Click "Save GitHub Settings"
+2. Change "Show blocked builds in GitHub as" to "Pending"
+3. Enable "Create a status for each job"
+4. Enable "Separate statuses for pull requests"
+5. Click "Save GitHub Settings"
 
-![github](https://p198.p4.n0.cdn.getcloudapp.com/items/L1ugXppk/buildkite-github-settings-third-party-pull-requests.png?v=22ec8383f69914b5240cc629e2c9ab8b)
+![github](https://p198.p4.n0.cdn.getcloudapp.com/items/GGuNKRRL/buildkite-github-settings-third-party-pull-requests.png?v=84941a3fad91165442e19a40f6fe7f5b)
 
 ## Demonstration
 
