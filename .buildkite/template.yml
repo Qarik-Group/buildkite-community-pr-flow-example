@@ -6,12 +6,5 @@ env:
     github.com/drnic/
     github.com/jhunt/
 steps:
-  - command: .buildkite/scripts/choose-pr-pipeline.sh | buildkite-agent pipeline upload
-    label: ":pipeline: pr"
-    if: build.pull_request.repository != null
-  - command: buildkite-agent pipeline upload .buildkite/pipeline.master.yml
-    label: ":pipeline: master"
-    if: build.branch == 'master' && build.pull_request.repository == null
-  - command: buildkite-agent pipeline upload .buildkite/pipeline.branch.yml
-    label: ":pipeline: branch"
-    if: build.branch != 'master' && build.pull_request.repository == null
+  - command: buildkite-agent pipeline upload .buildkite/pipeline.yml
+    label: ":pipeline:"
