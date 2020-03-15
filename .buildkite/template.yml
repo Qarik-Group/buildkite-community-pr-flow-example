@@ -1,10 +1,5 @@
 name: "buildkite-community-pr-flow-example"
 description: "Whitelist or block community Pull Requests"
-env:
-  PR_WHITELIST: |
-    github.com/starkandwayne/
-    github.com/drnic/
-    github.com/jhunt/
 steps:
   - command: buildkite-agent pipeline upload .buildkite/pipeline.yml
     label: ":pipeline:"
