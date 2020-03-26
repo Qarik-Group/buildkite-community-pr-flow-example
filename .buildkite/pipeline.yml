@@ -1,3 +1,6 @@
+# NOTICE: this file is should not be dynamically loaded by "buildkite-agent pipeline upload",
+#         instead, copy and paste this into buildkite.com Pipeline Settings as the Steps from YAML.
+#         This will prevent a misadventurous commit from changing the initial pipeline against your will.
 env:
   PR_WHITELIST: |
     github.com/starkandwayne/
